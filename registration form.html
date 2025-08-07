@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>student registration form</title>
+</head>
+<body>
+<center>
+<h2>student registration</h2>
+<form action="seven.php" method="POST">
+<label for="uname">username:</label><br>
+<input type="text" name="uname" placeholder="username" required><br>
+<label for="email">Email:</label><br>
+<input type="email" name="email" placeholder="Email" required><br>
+<label for="password">password:</label><br>
+<input type="password" name="password" placeholder="password" required><br>
+<label for="mobile">mobile number:</label><br>
+<input type="tel" name="mobile" placeholder="mobile number" pattern="[0-9]{10}" required><br>
+<label>gender:</label><br>
+<input type="radio" name="gender" value="male" required>
+<label for="male">male</label>
+<input type="radio" name="gender" value="female">
+<label for="female">female</label><br><br>
+<label for="dob">date of birth:</label><br>
+<input type="date" name="dob" required><br><br>
+<label for="student_id">student id:</label><br>
+<input type="text" name="student_id" placeholder="student id" required><br>
+<label for="year">select college</label><br>
+<select name="year" required>
+<option value="" disabled selected>_ _ _select college     </option>
+<option value="1">ADITYA DEGREE COLLEGE</option>
+<option value="2">ADITYA DEGREE COLLEGE FOR WOMEN</option>
+<option value="3">SRI ADITYA DEGREE COLLEGE</option>
+</select><br><br>
+<label for="course">interested courses:</label><br><p>which you are interested to join</p>
+<input type="checkbox"name="course[]" value="ADVANCED EXCEL">advanced excel<br>
+<input type="checkbox"name="course[]" value="PYTHON FULLSTACK">python fullstack<br>
+<input type="checkbox"name="course[]" value="JAVA FULLSTACK">java fullstack<br>
+<input type="submit" value="Register">
+</form>
+</center>
+</body>
+</html>
+<?php 
+if(isset($_GET['name'])){
+$username=$_POST['uname'];
+$email=$_POST['email'];
+$password=$_post['password'];
+$mobile=$_POST['mobile'];
+$gender=$_POST['gender'];
+$dob=$_POST['dob'];
+$student_id=$_POST['student_id'];
+$college=$_POST['year'];
+$courses=$_POST['course'];
+echo 'username:'.$username."<br>";echo 'Email:'.$email."<br>";
+echo 'password:[hidden]<br>';
+echo 'mobile number:'.$mobile."<br>";echo 'gender:'.$gender."<br>";
+echo 'date of birth:'.$dob."<br>";echo 'student id:'.$student_id."<br>";echo 'college:'.$college."<br>";
+foreach($courses as $course)
+{
+echo $course.'';
+}
+echo"<br>";
+}
+?>
